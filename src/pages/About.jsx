@@ -1,4 +1,3 @@
-import React from 'react'
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
 import 'react-vertical-timeline-component/style.min.css'
 import { skills,experiences } from '../constants'
@@ -8,8 +7,7 @@ const About = () => {
   return (
     <section className="max-container">
       <h1 className="head-text">
-
-      Hello, I'm <span className="blue-gradient_text font-semibold drop-shadow">Anurag</span>
+      Hello, I&apos;m <span className="blue-gradient_text font-semibold drop-shadow">Anurag</span>
       </h1>
       <div className="mt-5 flex flex-col gap-3 text-slate-500">
         <p>Software Engineer based in India, 
@@ -19,8 +17,8 @@ const About = () => {
       <div className="py-10 flex flex-col">
         <h3 className="subhead-text">My Skills</h3>
         <div className="mt-16 flex flex-wrap gap-12">
-          {skills.map((skill)=>(
-            <div className="block-container w-20 h-20 ">
+          {skills.map((skill, idx)=>(
+            <div className="block-container w-20 h-20 " key={skill.name + idx}>
               <div className="btn-back rounded-xl"/>
               <div className="btn-front rounded-xl flex justify-center items-center">
                 <img 
@@ -51,14 +49,12 @@ const About = () => {
                icon={<div className="flex justify-center items-center w-full h-full">
                 <img src={experience.icon}
                  alt={experience.company_name} 
-                 className='w-60% h-60% object-contain'
+                 className="w-[60%] h-[60%] object-contain"
                 />
                </div>}
                 iconStyle={{background: experience.iconBg}}
                contentStyle={{
-                borderBotton: '8px',
-                borderStyle: 'solid',
-                borderBottomColor: experience.iconBg,
+                borderBottom: '8px solid ' + experience.iconBg,
                 boxShadow: 'none'
                }}
               >
